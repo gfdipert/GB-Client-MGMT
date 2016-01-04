@@ -7,7 +7,7 @@ from .forms import ClientForm
 
 # Create your views here.
 
-def post_list(request):
+def client_list(request):
     clients = Client.objects.filter(intro__lte=timezone.now()).order_by('intro')
     return render(request, 'blog/post_list.html', {'clients':clients})
 
