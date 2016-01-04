@@ -4,9 +4,9 @@
 {% for client in clients %}
     <div class="client">
         <div class="date">
-            {{ client.intro }}
+            {{ client.applaunch }}
         </div>
-        <h1><a href="">{{ client.name }}</a></h1>
+        <h1><a href="{% url 'client_detail' cl=client.cl %}">{{ client.title }}</a></h1>
         <p>{{ client.text|linebreaks }}</p>
     </div>
 {% endfor %}
