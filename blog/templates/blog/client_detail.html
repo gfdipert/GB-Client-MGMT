@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="client">
+        {% if client.applaunch %}
+            <div class="date">
+                {{ client.applaunch }}
+            </div>
+        {% endif %}
+        <h1>{{ client.name }}</h1>
+        <p>{{ client.gstatus|linebreaks }}</p>
+        <p>{{ client.appstatus|linebreaks }}</p>
+        <p>{{ client.pstatus|linebreaks }}</p>
+        <p>{{ client.bstatus|linebreaks }}</p>
+        <p>{{ client.astatus|linebreaks }}</p>
+        <p>{{ client.intro|linebreaks }}</p>
+        <p>{{ client.appsub|linebreaks }}</p>
+        <p>{{ client.apppub|linebreaks }}</p>
+        <p>{{ client.applaunch|linebreaks }}</p>
+    </div>
+{% endblock %}

@@ -6,7 +6,7 @@
         <div class="date">
             {{ client.applaunch }}
         </div>
-        <h1><a href="{% url 'client_detail' cl=client.cl %}">{{ client.title }}</a></h1>
+        <h1><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h1>
         <p>{{ client.text|linebreaks }}</p>
     </div>
 {% endfor %}
