@@ -25,7 +25,7 @@ class Client(models.Model):
     GSTATUS = (
         (0,'New'),
         (1,'Guidebuilding'),
-        (2,'Guidebuild Sufficient'),
+        (2,'Guidebuild Sufficient for Submission'),
         (3,'Complete'),
     )
     APPSTATUS = (
