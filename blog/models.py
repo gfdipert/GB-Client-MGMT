@@ -59,6 +59,7 @@ class Client(models.Model):
     intro = models.DateField(null=True, blank=True, verbose_name=_('Intro Email Sent'))
     appsub = models.DateField(null=True, blank=True, verbose_name=_('Apple Submitted'))
     apppub = models.DateField(null=True, blank=True, verbose_name=_('Apple Published'))
+    applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
     guides = models.TextField(default='Guide Names')
     def __unicode__(self):
         return self.name
