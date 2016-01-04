@@ -9,7 +9,7 @@ from .forms import ClientForm
 
 def client_list(request):
     clients = Client.objects.filter(intro__lte=timezone.now()).order_by('intro')
-    return render(request, 'blog/post_list.html', {'clients':clients})
+    return render(request, 'blog/client_list.html', {'clients':clients})
 
 def client_detail(request, pk):
     client = get_object_or_404(Client, pk=pk)
