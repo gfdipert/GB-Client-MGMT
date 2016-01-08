@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
-from .models import Post
 from .models import Client
 from .forms import ClientForm
 
@@ -18,8 +17,8 @@ def client_detail(request, pk):
     return render(request, 'blog/client_detail.html', {'client': client})
 
 def client_new(request):
-	if request.method == "CLIENT":
-		form = ClientForm(request.CLIENT)
+	if request.method == "POST":
+		form = ClientForm(request.POST)
 		if form.is_valid():
 			print form.errors
 			client = form.save(commit=False)
@@ -32,8 +31,8 @@ def client_new(request):
 
 def client_edit(request, pk):
     client = get_object_or_404(Client, pk=pk)
-    if request.method == "CLIENT":
-        form = ClientForm(request.CLIENT, instance=client)
+    if request.method == "POST":
+        form = ClientForm(request.POST, instance=client)
         if form.is_valid():
             client = form.save(commit=False)
             client.applaunch = timezone.now()
