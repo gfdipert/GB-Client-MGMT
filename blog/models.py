@@ -5,6 +5,7 @@ from django.utils.translation import ugettext as _
 from django.conf import settings
 
 class Client(models.Model):
+    """Create CLIENT object with status, date, and guide name attributes"""
     GSTATUS = (
         (0,'New'),
         (1,'Guidebuilding'),
@@ -43,6 +44,7 @@ class Client(models.Model):
     appsub = models.DateField(null=True, blank=True, verbose_name=_('Apple Submitted'))
     apppub = models.DateField(null=True, blank=True, verbose_name=_('Apple Published'))
     applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
+  #  eventdate = models.DateField(null=True, blank=True, verbose_name=_('Event Date'))
     guides = models.TextField(default='Guide Names')
     
     def __str__(self):

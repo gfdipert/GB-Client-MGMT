@@ -10,4 +10,26 @@
         <p>{{ client.text|linebreaks }}</p>
     </div>
 {% endfor %}
+<h1>Apple Status</h1>
+{% for client in clients %}
+    <div class="client">
+        <div class="date">
+            {{ client.get_appstatus_display|linebreaks }}
+            {{ client.appsub }}
+        </div>
+        <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
+        <p>{{ client.text|linebreaks }}</p>
+        <br>
+    </div>
+{% endfor %}
+<h1>Guidebuilding Status</h1>
+{% for client in clients %}
+    <div class="client">
+        <div class="date">
+            {{ client.get_gstatus_display|linebreaks }}
+        </div>
+        <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
+        <p>{{ client.text|linebreaks }}</p>
+    </div>
+{% endfor %}
 {% endblock %}

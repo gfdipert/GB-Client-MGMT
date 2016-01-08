@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
@@ -16,7 +15,13 @@ def client_detail(request, pk):
     client = get_object_or_404(Client, pk=pk)
     return render(request, 'blog/client_detail.html', {'client': client})
 
+#def client_list(request):
+ #   clients = Client.objects.all().order_by('applaunch')
+ #   return render(request, 'blog/client_list.html', {'clients':clients})
+
+
 def client_new(request):
+	"""Create new client"""
 	if request.method == "POST":
 		form = ClientForm(request.POST)
 		if form.is_valid():
