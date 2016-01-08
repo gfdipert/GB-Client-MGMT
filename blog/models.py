@@ -52,7 +52,7 @@ class Client(models.Model):
     )
     name = models.CharField(max_length=45, unique=True, verbose_name=_('Name'))
     gstatus = models.IntegerField(choices=GSTATUS, default=0, verbose_name=_('Guidebuilding Status'))
-    appstatus = models.IntegerField(choices=APPSTATUS, default=0, verbose_name=_('Apple Store Status'))
+    appstatus = models.IntegerField(choices=APPSTATUS, default=0, verbose_name=_('Apple Submission Status'))
     pstatus = models.IntegerField(choices=PSTATUS, default=0, verbose_name=_('Google Play Status'))
     bstatus = models.IntegerField(choices=BSTATUS, default=0, verbose_name=_('Blackberry Status'))
     astatus = models.IntegerField(choices=ASTATUS, default=0, verbose_name=_('Amazon Status'))
@@ -61,5 +61,10 @@ class Client(models.Model):
     apppub = models.DateField(null=True, blank=True, verbose_name=_('Apple Published'))
     applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
     guides = models.TextField(default='Guide Names')
-    def __unicode__(self):
+    
+    def __str__(self):
         return self.name
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()

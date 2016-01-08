@@ -1,12 +1,12 @@
 {% extends 'blog/base.html' %}
-
 {% block content %}
+<h1>Client List</h1>
 {% for client in clients %}
     <div class="client">
         <div class="date">
             {{ client.applaunch }}
         </div>
-        <h1><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h1>
+        <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
         <p>{{ client.text|linebreaks }}</p>
     </div>
 {% endfor %}
