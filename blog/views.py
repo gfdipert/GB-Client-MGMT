@@ -10,7 +10,7 @@ from .forms import ClientForm
 # Create your views here.
 
 def client_list(request):
-    clients = Client.objects.filter(intro__lte=timezone.now()).order_by('intro')
+    clients = Client.objects.all().order_by('intro')
     return render(request, 'blog/client_list.html', {'clients':clients})
 
 def client_detail(request, pk):
