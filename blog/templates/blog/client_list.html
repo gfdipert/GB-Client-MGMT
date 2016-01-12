@@ -4,25 +4,20 @@
 {% for client in clients %}
     <div class="client">
         <div class="date">
-            {{ client.get_apptype_display|linebreaks }}
-            {{ client.get_prostatus_display|linebreaks }}
+            {{ client.get_apptype_display }} - {{ client.get_prostatus_display }}
         </div>
         <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
         <p>{{ client.text|linebreaks }}</p>
-        <br>
-        <br>
     </div>
 {% endfor %}
 <h1>Apple Status</h1>
 {% for client in clients %}
     <div class="client">
         <div class="date">
-            {{ client.get_appstatus_display }}
-            {{ client.appsub }}
+            {{ client.get_appstatus_display }} : {{ client.appsub }}
         </div>
         <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
         <p>{{ client.text|linebreaks }}</p>
-        <br>
     </div>
 {% endfor %}
 <h1>Guidebuilding Status</h1>
@@ -33,7 +28,6 @@
         </div>
         <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
         <p>{{ client.text|linebreaks }}</p>
-        <br>
     </div>
 {% endfor %}
 {% endblock %}
