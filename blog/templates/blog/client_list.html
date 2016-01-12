@@ -17,7 +17,8 @@
 {% for client in clients %}
     <div class="client">
         <div class="date">
-            {{ client.get_appstatus_display }} {{ client.appsub }}
+            {{ client.get_appstatus_display }}
+            {{ client.appsub }}
         </div>
         <h2><a href="{% url 'client_detail' pk=client.pk %}">{{ client.name }}</a></h2>
         <p>{{ client.text|linebreaks }}</p>
