@@ -32,7 +32,7 @@ def client_new(request):
 		return render(request, 'blog/client_edit.html', {'form':form})
 
 def client_edit(request, pk):
-#Getting indentation errors when I add this doc string:	"""Edit client details"""
+	"""Doc string"""
 	client = get_object_or_404(Client, pk=pk)
 	if request.method == "POST":
     	form = ClientForm(request.POST, instance=client)
@@ -40,7 +40,7 @@ def client_edit(request, pk):
         	client = form.save(commit=False)
         	client.applaunch = timezone.now()
         	client.save()
-        	return redirect('client_detail', pk=client.pk)
+			return redirect('client_detail', pk=client.pk)
     else:
         form = ClientForm(instance=client)
     return render(request, 'blog/client_edit.html', {'form': form})
