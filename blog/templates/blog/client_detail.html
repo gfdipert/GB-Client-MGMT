@@ -9,16 +9,37 @@
         {% endif %}
         <a class="btn btn-default" href="{% url 'client_edit' pk=client.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         <h1>{{ client.name }}</h1>
-    	<p><h3>Guidebuilding Status: </h3>{{ client.get_gstatus_display|linebreaks }}</p>
-        <p><h3>Apple Submission Status: </h3>{{ client.get_appstatus_display|linebreaks }}</p>
-        <p><h3>Google Play Submission Status: </h3>{{ client.get_pstatus_display|linebreaks }}</p>
-        <p><h3>Blackberry Submission Status: </h3>{{ client.get_bstatus_display|linebreaks }}</p>
-        <p><h3>Amazon Submission Status: </h3>{{ client.get_astatus_display|linebreaks }}</p>
-        <p><h3>Desired Launch Date: </h3>{{ client.applaunch|linebreaks }}</p>
-        <p><h3>Intro Email Sent:  </h3>{{ client.intro|linebreaks }}</p>
-        <p><h3>Apple App Submitted: </h3>{{ client.appsub|linebreaks }}</p>
-        <p><h3>Apple App Published: </h3>{{ client.apppub|linebreaks }}</p>
-     <!--   <p><h3>Event Date: </h3>{{ client.eventdate|linebreaks }}</p>!-->
-        <p><h3>Client Guides: </h3>{{ client.guides|linebreaks }}</p>
+        <table>
+            <tr>
+    	       <td><h3>App Type: </h3>{{ client.get_apptype_display|linebreaks }}</td>
+               <td><h3>Apple Submission Status: </h3>{{ client.get_appstatus_display|linebreaks }}</td>
+            </tr>
+                <td><h3>Guidebuilding Service: </h3>{{ client.get_prostatus_display|linebreaks }}</td>
+                <td><h3>Apple App Submitted: </h3>{{ client.appsub|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Desired Launch Date: </h3>{{ client.applaunch|linebreaks }}</td>
+                <td><h3>Apple App Published: </h3>{{ client.apppub|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Intro Email Sent:  </h3>{{ client.intro|linebreaks }}</td>
+                <td><h3>Guidebuilding Status: </h3>{{ client.get_gstatus_display|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Event Date: </h3>{{ client.eventdate|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Google Play Submission Status: </h3>{{ client.get_pstatus_display|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Blackberry Submission Status: </h3>{{ client.get_bstatus_display|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Amazon Submission Status: </h3>{{ client.get_astatus_display|linebreaks }}</td>
+            </tr>
+            <tr>
+                <td><h3>Client Guides: </h3>{{ client.guides|linebreaks }}</td>
+            </tr>
+        </table>
     </div>
 {% endblock %}

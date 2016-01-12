@@ -14,8 +14,17 @@
     margin-left: 40px;
 }
 
-h1, h2, h3, h4 {
+h1, h4 {
     font-family: 'Arial';
+}
+
+h2 {
+    font-family: 'Arial';
+    font-size: 17pt;
+}
+h3 {
+    font-family: 'Arial';
+    font-size: 15pt;
 }
 
 .date {
@@ -44,4 +53,16 @@ h1, h2, h3, h4 {
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+th {
+    padding: 25px;
+}
+
+td {
+    padding: 10px;
 }

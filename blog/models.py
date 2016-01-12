@@ -5,12 +5,21 @@ from django.utils.translation import ugettext as _
 from django.conf import settings
 
 class Client(models.Model):
-    """Create CLIENT object with status, date, and guide name attributes"""
+    """Create CLIENT object with status, date, and guide attributes"""
     GSTATUS = (
-        (0,'New'),
+        (0,'New - Guide Not Built'),
         (1,'Guidebuilding'),
         (2,'Guidebuild Sufficient for Submission'),
         (3,'Complete'),
+    )
+    PROSTATUS = (
+        (0,'Pro'),
+        (1,'DIY'),
+    )
+    APPTYPE = (
+        (0, 'GB Premium'),
+        (1, 'Standalone'),
+        (2, 'Multiguide'),
     )
     APPSTATUS = (
         (0,'Pending Assets'),
@@ -35,6 +44,8 @@ class Client(models.Model):
         (2,'Amazon Published'),
     )
     name = models.CharField(max_length=45, unique=True, verbose_name=_('Name'))
+    apptype = models.IntegerField(choices=APPTYPE, default=0, verbose_name=_('App Type'))
+    prostatus = models.IntegerField(choices=PROSTATUS, default=0, verbose_name=_('Guidebuilding Service'))
     gstatus = models.IntegerField(choices=GSTATUS, default=0, verbose_name=_('Guidebuilding Status'))
     appstatus = models.IntegerField(choices=APPSTATUS, default=0, verbose_name=_('Apple Submission Status'))
     pstatus = models.IntegerField(choices=PSTATUS, default=0, verbose_name=_('Google Play Status'))
@@ -44,7 +55,7 @@ class Client(models.Model):
     appsub = models.DateField(null=True, blank=True, verbose_name=_('Apple Submitted'))
     apppub = models.DateField(null=True, blank=True, verbose_name=_('Apple Published'))
     applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
-  #  eventdate = models.DateField(null=True, blank=True, verbose_name=_('Event Date'))
+    eventdate = models.DateField(null=True, blank=True, verbose_name=_('Event Date'))
     guides = models.TextField(default='Guide Names')
     
     def __str__(self):
