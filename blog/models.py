@@ -57,8 +57,7 @@ class Client(models.Model):
     astatus = models.IntegerField(choices=ASTATUS, default=0, verbose_name=_('Amazon Status'))
     intro = models.DateField(null=True, blank=True, verbose_name=_('Intro Email Sent'))
     appsub = models.DateField(null=True, blank=True, verbose_name=_('Apple Submitted'))
-   # date = models.DateField(null=True, blank=True, default=14)
-   # checkapp = date + appsub
+    checkapp = models.DateField(null=True, blank=True, verbose_name=_('Check Apple Submission'))
     apppub = models.DateField(null=True, blank=True, verbose_name=_('Apple Published'))
     applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
     eventdate = models.DateField(null=True, blank=True, verbose_name=_('Event Date'))
@@ -70,3 +69,11 @@ class Client(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
+
+class ClientBuild(models.Model):
+
+    buildusername = models.CharField(max_length=45, unique=True, verbose_name=_('Build Username'))
+    buildpassword = models.CharField(max_length=45, unique=True, verbose_name=_('Build Password'))
+
+    def __str__(self):
+        return self.name

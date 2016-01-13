@@ -8,6 +8,7 @@
             </div>
         {% endif %}
         <a class="btn btn-default" href="{% url 'client_edit' pk=client.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'blog.views.client_build' pk=client.pk %}">Build Assets</a>
         <h1>{{ client.name }}</h1>
         <table>
             <tr>
@@ -19,14 +20,15 @@
             </tr>
             <tr>
                 <td><h3>Desired Launch Date: </h3>{{ client.applaunch|linebreaks }}</td>
-                <td><h3>Apple App Published: </h3>{{ client.apppub|linebreaks }}</td>
+                <td><h3>Check Apple Submission: </h3>{{ client.checkapp|linebreaks }}</td>
             </tr>
             <tr>
                 <td><h3>Intro Email Sent:  </h3>{{ client.intro|linebreaks }}</td>
-                <td><h3>Guidebuilding Status: </h3>{{ client.get_gstatus_display|linebreaks }}</td>
+                <td><h3>Apple App Published: </h3>{{ client.apppub|linebreaks }}</td>
             </tr>
             <tr>
                 <td><h3>Event Date: </h3>{{ client.eventdate|linebreaks }}</td>
+                <td><h3>Guidebuilding Status: </h3>{{ client.get_gstatus_display|linebreaks }}</td>
             </tr>
             <tr>
                 <td><h3>Google Play Submission Status: </h3>{{ client.get_pstatus_display|linebreaks }}</td>

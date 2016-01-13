@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from .models import Client
 from .forms import ClientForm
+from .forms import ClientBuild
 
 # Create your views here.
 
@@ -42,3 +43,18 @@ def client_edit(request, pk):
 	else:
 		form = ClientForm(instance=client)
 	return render(request, 'blog/client_edit.html', {'form': form})
+
+def client_build(request, pk):	
+	client = get_object_or_404(Client, pk=pk)
+	if request.method == "POST":
+		form = ClientBuild(request.POST, instance=client)
+		if form.is_valid():
+			client = form.save(commit=False)
+			client.save()
+			return redirect('client_detail', pk=client.pk)
+	else:
+		form = ClientBuild(instance=client)
+	return render(request, 'blog/client_build.html', {'form': form})
+
+#def client_build_submit(request):
+#	pass
