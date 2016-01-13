@@ -3,6 +3,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
 from django.conf import settings
+from datetime import datetime 
+from datetime import timedelta
+from datetime import time
+
 
 class Client(models.Model):
     """Create CLIENT object with status, date, and guide attributes"""
@@ -53,6 +57,8 @@ class Client(models.Model):
     astatus = models.IntegerField(choices=ASTATUS, default=0, verbose_name=_('Amazon Status'))
     intro = models.DateField(null=True, blank=True, verbose_name=_('Intro Email Sent'))
     appsub = models.DateField(null=True, blank=True, verbose_name=_('Apple Submitted'))
+   # date = models.DateField(null=True, blank=True, default=14)
+   # checkapp = date + appsub
     apppub = models.DateField(null=True, blank=True, verbose_name=_('Apple Published'))
     applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
     eventdate = models.DateField(null=True, blank=True, verbose_name=_('Event Date'))
