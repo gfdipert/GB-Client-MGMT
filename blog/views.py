@@ -56,5 +56,6 @@ def client_build(request, pk):
 		form = ClientBuild(instance=client)
 	return render(request, 'blog/client_build.html', {'form': form})
 
-#def client_build_submit(request):
-#	pass
+def client_build_assets(request, pk):
+	client = get_object_or_404(Client, pk=pk)
+	return render(request, 'blog/client_build_assets.html', {'client': client})

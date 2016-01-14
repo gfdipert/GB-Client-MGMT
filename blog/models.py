@@ -62,6 +62,7 @@ class Client(models.Model):
     applaunch = models.DateField(null=True, blank=True, verbose_name=_('Apple Launch Date'))
     eventdate = models.DateField(null=True, blank=True, verbose_name=_('Event Date'))
     guides = models.TextField(default='Guide Names')
+    buildappname = models.CharField(max_length=45, default='Some string', unique=True, verbose_name=_('Build App Name'))
     
     def __str__(self):
         return self.name
@@ -72,8 +73,8 @@ class Client(models.Model):
 
 class ClientBuild(models.Model):
 
-    buildusername = models.CharField(max_length=45, unique=True, verbose_name=_('Build Username'))
-    buildpassword = models.CharField(max_length=45, unique=True, verbose_name=_('Build Password'))
+    buildusername = models.CharField(max_length=45, unique=True, default='SOME STRING', verbose_name=_('Build Username'))
+    buildpassword = models.CharField(max_length=45, unique=True, null=True, default='SOME STRING', verbose_name=_('Build Password'))
 
     def __str__(self):
         return self.name

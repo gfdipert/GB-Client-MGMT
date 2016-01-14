@@ -8,11 +8,12 @@
             </div>
         {% endif %}
         <a class="btn btn-default" href="{% url 'client_edit' pk=client.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-default" href="{% url 'blog.views.client_build' pk=client.pk %}">Build Assets</a>
+        <a class="btn btn-default" href="{% url 'blog.views.client_build' pk=client.pk %}">Edit Build Assets</a>
+        <a class="btn btn-default" href="{% url 'blog.views.client_build_assets' pk=client.pk %}">Build Assets</a>
         <h1>{{ client.name }}</h1>
         <table>
             <tr>
-    	       <td><h3>App Type: </h3>{{ client.get_apptype_display|linebreaks }}</td>
+               <td><h3>App Type: </h3>{{ client.get_apptype_display|linebreaks }}</td>
                <td><h3>Apple Submission Status: </h3>{{ client.get_appstatus_display|linebreaks }}</td>
             </tr>
                 <td><h3>Guidebuilding Service: </h3>{{ client.get_prostatus_display|linebreaks }}</td>
