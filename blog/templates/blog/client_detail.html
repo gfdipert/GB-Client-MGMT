@@ -8,7 +8,6 @@
             </div>
         {% endif %}
         <a class="btn btn-default" href="{% url 'client_edit' pk=client.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-default" href="{% url 'blog.views.client_build' pk=client.pk %}">Edit Build Assets</a>
         <a class="btn btn-default" href="{% url 'blog.views.client_build_assets' pk=client.pk %}">Build Assets</a>
         <h1>{{ client.name }}</h1>
         <table>

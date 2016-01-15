@@ -73,8 +73,8 @@ class Client(models.Model):
 
 class ClientBuild(models.Model):
 
-    buildusername = models.CharField(max_length=45, unique=True, default='SOME STRING', verbose_name=_('Build Username'))
-    buildpassword = models.CharField(max_length=45, unique=True, null=True, default='SOME STRING', verbose_name=_('Build Password'))
+    buildusername = models.CharField(max_length=45, unique=True, null=True, default='Username', verbose_name=_('Build Username'))
+    buildpassword = models.CharField(max_length=45, unique=True, null=True, default = 'Password', verbose_name=_('Build Password'))
 
     def __str__(self):
         return self.name

@@ -11,5 +11,5 @@ class ClientForm(forms.ModelForm):
 class ClientBuild(forms.ModelForm):
 
 	class Meta:
-		model = ClientBuild
-		fields = ('buildusername', 'buildpassword',)
+		model = Client
+		fields = ('buildappname',)

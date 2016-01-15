@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
     <div class="client">
-        <h3>Check Apple Submission: </h3>{{ client.checkapp|linebreaks }}
+        <a class="btn btn-default" href="{% url 'client_build' pk=client.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h3>Build Username: </h3>{{ client.buildappname|linebreaks }}
     </div>
 {% endblock %}
